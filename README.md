@@ -46,3 +46,28 @@ Lets take a look inside the `src` folder
  ```
  npm run dev
  ```
+
+ - if you want to creat mysql database then run below command
+```
+npx sequelize db:create
+```
+
+- `creating a model & migration` -> run below command to create the database model(schema) and migration(version) of DB.
+```
+npx sequelize model:generate --name Airplane --attributes modelNumber:string,capacity:integer
+```
+- Remember above command will NOT create the table right now. this will creat only model with named as "airplane" and migration file. it is just like adding a git file but Not commiting.
+- Whatever constraints we put in "model" folder, that will JS level constraints only, not the DB constraints
+- the contraints in the "migration" folder will be the actual DB constraints.
+
+-`migration i.e. version of DB` -> this can create , alter and remove the data(tables) from DB.
+
+-`creating table on databases i.e. commiting the migration` -> run below command to create a commit of a migration means this will actually create the table in mySQL DB.
+```
+npx sequelize db:migrate
+```
+
+-`to revert the DB change i.e. undo the last migration` -> run below command to delete the tables from the DB
+```
+npx sequelize db:migrate:undo
+```
